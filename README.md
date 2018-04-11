@@ -76,10 +76,19 @@ And normalized confused matrix is:
 
 #### 1. For all three tabletop setups (`test*.world`), perform object recognition, then read in respective pick list (`pick_list_*.yaml`). Next construct the messages that would comprise a valid `PickPlace` request output them to `.yaml` format.
 
-And here's another image! 
-![demo-2](https://user-images.githubusercontent.com/20687560/28748286-9f65680e-7468-11e7-83dc-f1a32380b89c.png)
+##### World 1 (3 Object)
+This configuration on pick_place_project.launch we define
+<rosparam command="load" file="$(find pr2_robot)/config/pick_list_1.yaml"/>
+which looks like :
+object_list:
+  - name: biscuits
+    group: green
+  - name: soap
+    group: green
+  - name: soap2
+    group: red
 
-Spend some time at the end to discuss your code, what techniques you used, what worked and why, where the implementation might fail and how you might improve it if you were going to pursue this project further.  
+The recognition output we can see in below picture :
+<p align="center"> <img src="./images/00 World 1.jpg"> </p>
 
-
-
+Target recognition output is 100% (3/3) objects in test1.world
