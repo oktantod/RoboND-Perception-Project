@@ -51,9 +51,10 @@ SVM Classifier = linear
 ##### World 1 (3 Object)
 Training output :
 <p align="center"> <img src="./images/08 Train SVM.jpg"> </p>
-
-
-![demo-1](https://user-images.githubusercontent.com/20687560/28748231-46b5b912-7467-11e7-8778-3095172b7b19.png)
+Confused matrix for this trainee:
+<p align="center"> <img src="./images/06 Confused Matrix.jpg"> </p>
+And normalized confused matrix is:
+<p align="center"> <img src="./images/07 Normalized Confused Matrix.jpg"> </p>
 
 ### Pick and Place Setup
 
