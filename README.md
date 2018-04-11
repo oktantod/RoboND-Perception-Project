@@ -145,7 +145,7 @@ object_list:
     group: red
 
 The recognition output we can see in below picture :
-<p align="center"> <img src="./images/00 World 3.jpg"> </p>
+<p align="center"> <img src="./images/16 World 3.jpg"> </p>
 
 Target recognition output is 100% (8/8) objects in test3.world
 YAML File: [Link!](https://github.com/oktantod/RoboND-Perception-Project/blob/master/output_3.yaml)
