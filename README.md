@@ -56,6 +56,22 @@ Confused matrix for this trainee:
 And normalized confused matrix is:
 <p align="center"> <img src="./images/07 Normalized Confused Matrix.jpg"> </p>
 
+##### World 2 (5 Object)
+Training output :
+<p align="center"> <img src="./images/11 Train SVM.jpg"> </p>
+Confused matrix for this trainee:
+<p align="center"> <img src="./images/09 Confused Matrix.jpg"> </p>
+And normalized confused matrix is:
+<p align="center"> <img src="./images/10 Normalized Confused Matrix.jpg"> </p>
+
+##### World 1 (8 Object)
+Training output :
+<p align="center"> <img src="./images/15 Train SVM.jpg"> </p>
+Confused matrix for this trainee:
+<p align="center"> <img src="./images/13 Confused Matrix.jpg"> </p>
+And normalized confused matrix is:
+<p align="center"> <img src="./images/14 Normalized Confused Matrix.jpg"> </p>
+
 ### Pick and Place Setup
 
 #### 1. For all three tabletop setups (`test*.world`), perform object recognition, then read in respective pick list (`pick_list_*.yaml`). Next construct the messages that would comprise a valid `PickPlace` request output them to `.yaml` format.
