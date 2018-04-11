@@ -26,6 +26,15 @@ In this exercise, LEAF_SIZE that we used is 0.005. The output of downsampled PCD
 Now we want remove useless data from our point cloud. Therefore we are implementing The Pass Through Filter as a cropping tool which allows us to crop any given 3D point cloud by specifying an axis with cut-off values along that axis. The region we allow to pass through, is often referred to as region of interest. Applying a Pass Through filter along z axis (the height with respect to the ground) to our tabletop scene in the range 0.3 to 5 gives the following result:
 <p align="center"> <img src="./images/03 Pass Throught Filter PCD.jpg"> </p>
 
+Next in our perception pipeline, we need to remove the table itself from the scene. To do this we will use a popular technique known as Random Sample Consensus or "RANSAC". RANSAC is an algorithm, that you can use to identify points in your dataset that belong to a particular model. In the case of the 3D scene you're working with here, the model we choose could be a plane, a cylinder, a box, or any other common shape.
+
+The RANSAC algorithm assumes that all of the data in a dataset is composed of both inliers and outliers, where inliers can be defined by a particular model with a specific set of parameters, while outliers do not fit that model and hence can be discarded. Like in the example below, we can extract the outliners that are not good fits for the model.
+
+We implement RANSAC with max_distance = 0.015. Extracted inlier we can see as image below :
+<p align="center"> <img src="./images/04 Extracted Inlier.jpg"> </p>
+
+From extracted_inlier, we can get extracted outlier as image below :
+<p align="center"> <img src="./images/05 Extracted Outlier.jpg"> </p>
 
 #### 2. Complete Exercise 2 steps: Pipeline including clustering for segmentation implemented.  
 
