@@ -78,7 +78,9 @@ And normalized confused matrix is:
 
 ##### World 1 (3 Object)
 This configuration on pick_place_project.launch we define
-<rosparam command="load" file="$(find pr2_robot)/config/pick_list_1.yaml"/>
+
+rosparam command="load" file="$(find pr2_robot)/config/pick_list_1.yaml"
+
 which looks like :
 object_list:
   - name: biscuits
@@ -92,3 +94,58 @@ The recognition output we can see in below picture :
 <p align="center"> <img src="./images/00 World 1.jpg"> </p>
 
 Target recognition output is 100% (3/3) objects in test1.world
+YAML File: [Link!](https://github.com/oktantod/RoboND-Perception-Project/blob/master/output_1.yaml)
+
+##### World 2 (5 Object)
+This configuration on pick_place_project.launch we define
+
+rosparam command="load" file="$(find pr2_robot)/config/pick_list_2.yaml"
+
+which looks like :
+object_list:
+  - name: biscuits
+    group: green
+  - name: soap
+    group: green
+  - name: book
+    group: red
+  - name: soap2
+    group: red
+  - name: glue
+    group: red
+
+The recognition output we can see in below picture :
+<p align="center"> <img src="./images/12 World 2.jpg"> </p>
+
+Target recognition output is 100% (5/5) objects in test2.world
+YAML File: [Link!](https://github.com/oktantod/RoboND-Perception-Project/blob/master/output_2.yaml)
+
+##### World 3 (8 Object)
+This configuration on pick_place_project.launch we define
+
+rosparam command="load" file="$(find pr2_robot)/config/pick_list_3.yaml"
+
+which looks like :
+object_list:
+  - name: sticky_notes
+    group: red
+  - name: book
+    group: red
+  - name: snacks
+    group: green
+  - name: biscuits
+    group: green
+  - name: eraser
+    group: red
+  - name: soap2
+    group: green
+  - name: soap
+    group: green
+  - name: glue
+    group: red
+
+The recognition output we can see in below picture :
+<p align="center"> <img src="./images/00 World 3.jpg"> </p>
+
+Target recognition output is 100% (8/8) objects in test3.world
+YAML File: [Link!](https://github.com/oktantod/RoboND-Perception-Project/blob/master/output_3.yaml)
