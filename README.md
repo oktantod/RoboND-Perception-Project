@@ -23,6 +23,10 @@ Original image have bigger size, running computation on a full resolution point 
 In this exercise, LEAF_SIZE that we used is 0.005. The output of downsampled PCD we can see on the picture below :
 <p align="center"> <img src="./images/02 downsampled.jpg"> </p>
 
+Now we want remove useless data from our point cloud. Therefore we are implementing The Pass Through Filter as a cropping tool which allows us to crop any given 3D point cloud by specifying an axis with cut-off values along that axis. The region we allow to pass through, is often referred to as region of interest. Applying a Pass Through filter along z axis (the height with respect to the ground) to our tabletop scene in the range 0.3 to 5 gives the following result:
+<p align="center"> <img src="./images/03 Pass Throught Filter PCD.jpg"> </p>
+
+
 #### 2. Complete Exercise 2 steps: Pipeline including clustering for segmentation implemented.  
 
 #### 3. Complete Exercise 3 Steps.  Features extracted and SVM trained.  Object recognition implemented.
