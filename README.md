@@ -15,6 +15,8 @@
 ### Exercise 1, 2 and 3 pipeline implemented
 
 #### 1. Complete Exercise 1 steps. Pipeline for filtering and RANSAC plane fitting implemented.
+In this exercise, for the first time process is converting ROS message into PCL data. The output of PCL data can be seen on the picture below :
+<p align="center"> <img src="./images/01 Original PCD.jpg"> </p>
 
 #### 2. Complete Exercise 2 steps: Pipeline including clustering for segmentation implemented.  
 
