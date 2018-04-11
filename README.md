@@ -18,9 +18,14 @@
 In this exercise, for the first time process is converting ROS message into PCL data. The output of PCL data can be seen on the picture below :
 <p align="center"> <img src="./images/01 Original PCD.jpg"> </p>
 
+Original image have bigger size, running computation on a full resolution point cloud can be slow and may not yiel any improvement on result obtained using a more sparsely sampled point cloud. So, in many cases, it is advantageous to downsample the data. In particular, you are going to use a VoxelGrid Downsampling Filter to derive a point cloud that has fewer points but should still do a good job of representing the input point cloud as a whole.
+
+In this exercise, LEAF_SIZE that we used is 0.005. The output of downsampled PCD we can see on the picture below :
+<p align="center"> <img src="./images/02 downsampled.jpg"> </p>
+
 #### 2. Complete Exercise 2 steps: Pipeline including clustering for segmentation implemented.  
 
-#### 2. Complete Exercise 3 Steps.  Features extracted and SVM trained.  Object recognition implemented.
+#### 3. Complete Exercise 3 Steps.  Features extracted and SVM trained.  Object recognition implemented.
 Here is an example of how to include an image in your writeup.
 
 ![demo-1](https://user-images.githubusercontent.com/20687560/28748231-46b5b912-7467-11e7-8778-3095172b7b19.png)
