@@ -38,8 +38,20 @@ From extracted_inlier, we can get extracted outlier as image below :
 
 #### 2. Complete Exercise 2 steps: Pipeline including clustering for segmentation implemented.  
 
+After We finished doing segmentation, now is the for doing clustering pipeline. In our exercise, we implement clustering using Euclidean Clustering or DBSCAN algorithm. This algorithm is a nice alternative to k-means when you don' t know how many clusters to expect in your data, but you do know something about how the points should be clustered in terms of density (distance between points in a cluster). 
+
 #### 3. Complete Exercise 3 Steps.  Features extracted and SVM trained.  Object recognition implemented.
-Here is an example of how to include an image in your writeup.
+After we are doing clustering, we need to get SVM trained that we can get from sensor_stick capture_feature.py
+Parameter that we used for generated SVM trained model is :
+Histogram length = 32
+Number of Trainee = 20
+Image Type = HSV
+SVM Classifier = linear
+
+##### World 1 (3 Object)
+Training output :
+<p align="center"> <img src="./images/08 Train SVM.jpg"> </p>
+
 
 ![demo-1](https://user-images.githubusercontent.com/20687560/28748231-46b5b912-7467-11e7-8778-3095172b7b19.png)
 
