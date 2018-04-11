@@ -206,7 +206,7 @@ def pr2_mover(object_list):
 
     # TODO: Initialize variables
     TEST_SCENE_NUM = std_msgs.msg.Int32()
-    TEST_SCENE_NUM.data = 1
+    TEST_SCENE_NUM.data = 3
     OBJECT_NAME = std_msgs.msg.String()
     WHICH_ARM = std_msgs.msg.String() # green = right, red = left
     PICK_POSE = geometry_msgs.msg.Pose()

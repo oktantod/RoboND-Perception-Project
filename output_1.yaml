@@ -67,4 +67,4 @@ object_list:
       x: 0.0
       y: 0.71
       z: 0.8
-  test_scene_num: 1
+test_scene_num: 1
