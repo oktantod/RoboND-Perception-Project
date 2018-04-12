@@ -12,6 +12,9 @@
 
 #### Provide a Writeup / README that includes all the rubric points and how to addressed each one. 
 
+The procces of this exercise we can see in the image below :
+<p align="center"> <img src="./images/Pipeline Process.jpg"> </p>
+
 ### Exercise 1, 2 and 3 pipeline implemented
 
 #### 1. Complete Exercise 1 steps. Pipeline for filtering and RANSAC plane fitting implemented.
