@@ -39,39 +39,47 @@ When extracted process the argument negative is True, the te PCD would contain t
 
 #### 2. Complete Exercise 2 steps: Pipeline including clustering for segmentation implemented.  
 
-After We finished doing segmentation, now is the for doing clustering pipeline. In our exercise, we implement clustering using Euclidean Clustering or DBSCAN algorithm. This algorithm is a nice alternative to k-means when you don' t know how many clusters to expect in your data, but you do know something about how the points should be clustered in terms of density (distance between points in a cluster). 
+After We finished doing segmentation, now is the for doing clustering pipeline. In our exercise, we implement clustering using Euclidean Clustering or DBSCAN algorithm. This algorithm can do nicely without knowing the number of cluster that must be defined. Therefore, it would be effective when applied for world1 with 3 object, world2 with 5 object, and world3 with 8 object. 
 
 #### 3. Complete Exercise 3 Steps.  Features extracted and SVM trained.  Object recognition implemented.
 After we are doing clustering, we need to get SVM trained that we can get from sensor_stick capture_feature.py
-Parameter that we used for generated SVM trained model is :
-Histogram length = 32
-Number of Trainee = 20
-Image Type = HSV
-SVM Classifier = linear
 
-##### World 1 (3 Object)
-Training output :
-<p align="center"> <img src="./images/08 Train SVM.jpg"> </p>
-Confused matrix for this trainee:
-<p align="center"> <img src="./images/06 Confused Matrix.jpg"> </p>
-And normalized confused matrix is:
-<p align="center"> <img src="./images/07 Normalized Confused Matrix.jpg"> </p>
+Object-list that we want to captured is :
+object_list:
+  - name: sticky_notes
+    group: red
+  - name: book
+    group: red
+  - name: snacks
+    group: green
+  - name: biscuits
+    group: green
+  - name: eraser
+    group: red
+  - name: soap2
+    group: green
+  - name: soap
+    group: green
+  - name: glue
+    group: red
 
-##### World 2 (5 Object)
-Training output :
-<p align="center"> <img src="./images/11 Train SVM.jpg"> </p>
-Confused matrix for this trainee:
-<p align="center"> <img src="./images/09 Confused Matrix.jpg"> </p>
-And normalized confused matrix is:
-<p align="center"> <img src="./images/10 Normalized Confused Matrix.jpg"> </p>
+It contain 8 object and each object would be captured randomly as much as 50 position. Therefore feature in training set would be contain 400 feature. Extracted feature is using HSV. To define the number of position and HSV, we can edit capture_feature.py.
 
-##### World 1 (8 Object)
-Training output :
-<p align="center"> <img src="./images/15 Train SVM.jpg"> </p>
-Confused matrix for this trainee:
-<p align="center"> <img src="./images/13 Confused Matrix.jpg"> </p>
-And normalized confused matrix is:
-<p align="center"> <img src="./images/14 Normalized Confused Matrix.jpg"> </p>
+##### capture_features.py File: [Link!](https://github.com/oktantod/RoboND-Perception-Project/blob/master/pr2_robot/scripts/capture_features.py)
+
+Process computing histogram is doing in feature.py file. The length of histogram feature can be defined in bins value. On this exercise, length of histogram that used is 64. Please see feature.py on link below.
+
+##### feature.py File: [Link!](https://github.com/oktantod/RoboND-Perception-Project/blob/master/pr2_robot/scripts/features.py)
+
+Support Vector Machine (SVM) kernel that we are used is RBF. Another kernel that may used is linear or poly. The best performance for our exercise is RBF, therefore we used it.
+##### train_svm.py File: [Link!](https://github.com/oktantod/RoboND-Perception-Project/blob/master/pr2_robot/scripts/train_svm.py)
+
+The output of confusion matrix we can see as image below :
+<p align="center"> <img src="./images/Confusion Matrix.jpg"> </p>
+
+Ass we can see from confusion matrix, from 50 test, each object have misclassification maximum is 3. This feature generation and svm model is good enought to determined the object. The accuracy of SVM you can see in the image bellow :
+<p align="center"> <img src="./images/Accuracy SVM Trainee.jpg"> </p>
+
 
 ### Pick and Place Setup
 
