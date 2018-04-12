@@ -24,14 +24,17 @@ I try to saved the PCD data in images folder on this project with named Original
 <p align="center"> <img src="./images/02 downsampled.jpg"> </p>
 
 After we downsample the voxel data to reduce computing process, another method is The Pass Through Filter. The Pass Through Filter would be crop the Voxel data on target of interest only. Therefore dimension of voxel would be small and contain only information that we need. Applying a Pass Through filter along z axis (the height with respect to the ground) to our tabletop scene in the range 0.3 to 5 gives the result as image below :
-<p align="center"> <img src="./images/03 Pass Throught Filter PCD.jpg"> </p>
 PCD data only contain table and object list only.
+<p align="center"> <img src="./images/03 Pass Throught Filter PCD.jpg"> </p>
 
-Next in our perception pipeline, we need to remove the table itself from the scene. To do this, we implementing RANSAC (Random Sample Consensus).
+Next in our perception pipeline, we need to remove the table itself from the scene. To do this, we implementing RANSAC (Random Sample Consensus). Because the target that would be segmented is the table, than we must define that type of model is plane (Sample Consesus Plane). After we define the model, than we must define maxdistance of the threshold. We dont wont the object except the table would be threshold. In this experiment, we define the value of max_distance is 0.015.
+
+After we doing RANSAC Plan Fitting process, than we must doing extraction from RANSAC Plane Fitting output. When extracted process the argument negative is False, the PCD would only contain the table and object above the table would be removed. This process is Extracted inlier, and the output is an image below.
 
 <p align="center"> <img src="./images/04 Extracted Inlier.jpg"> </p>
 
-From extracted_inlier, we can get extracted outlier as image below :
+When extracted process the argument negative is True, the te PCD would contain the object and the table would be removed. This proccess is called Extracted Outlier, and the output is an image below:
+
 <p align="center"> <img src="./images/05 Extracted Outlier.jpg"> </p>
 
 #### 2. Complete Exercise 2 steps: Pipeline including clustering for segmentation implemented.  
