@@ -15,22 +15,20 @@
 ### Exercise 1, 2 and 3 pipeline implemented
 
 #### 1. Complete Exercise 1 steps. Pipeline for filtering and RANSAC plane fitting implemented.
-In this exercise, for the first time process is converting ROS message into PCL data. The output of PCL data can be seen on the picture below :
+In this exercise, for the first time process is converting ROS message into PCL data. The function that I was used is ros_to_pcl functions.
+
+The output of PCL data can be seen on the picture below :
 <p align="center"> <img src="./images/01 Original PCD.jpg"> </p>
 
-Original image have bigger size, running computation on a full resolution point cloud can be slow and may not yiel any improvement on result obtained using a more sparsely sampled point cloud. So, in many cases, it is advantageous to downsample the data. In particular, you are going to use a VoxelGrid Downsampling Filter to derive a point cloud that has fewer points but should still do a good job of representing the input point cloud as a whole.
-
-In this exercise, LEAF_SIZE that we used is 0.005. The output of downsampled PCD we can see on the picture below :
+I try to saved the PCD data in images folder on this project with named Original_pcl.pcd. This file is very larged because this is a full resolution of point cloud data. The size of file is about 29.1 MB. Doing computation using this PCD would be slower and difficult to get fast time processing. Therefore, the first time preprocessing is downsampled the voxel data. Downsample the data depend with the size of LEAF_SIZE. Value of LEAFSIZE must be consider betweed information and compression size. We need the minimum value of LEAFSIZE that would be great compression without lose information. In this exercise, LEAF_SIZE that we used is 0.005. It is difficult to determined the optimal value, but using LEAF_SIZE 0.005 is good enough, half of file size and minimum loss of information. PCD file size become 18.1 MB.The output of downsampled PCD we can see on the picture below :
 <p align="center"> <img src="./images/02 downsampled.jpg"> </p>
 
-Now we want remove useless data from our point cloud. Therefore we are implementing The Pass Through Filter as a cropping tool which allows us to crop any given 3D point cloud by specifying an axis with cut-off values along that axis. The region we allow to pass through, is often referred to as region of interest. Applying a Pass Through filter along z axis (the height with respect to the ground) to our tabletop scene in the range 0.3 to 5 gives the following result:
+After we downsample the voxel data to reduce computing process, another method is The Pass Through Filter. The Pass Through Filter would be crop the Voxel data on target of interest only. Therefore dimension of voxel would be small and contain only information that we need. Applying a Pass Through filter along z axis (the height with respect to the ground) to our tabletop scene in the range 0.3 to 5 gives the result as image below :
 <p align="center"> <img src="./images/03 Pass Throught Filter PCD.jpg"> </p>
+PCD data only contain table and object list only.
 
-Next in our perception pipeline, we need to remove the table itself from the scene. To do this we will use a popular technique known as Random Sample Consensus or "RANSAC". RANSAC is an algorithm, that you can use to identify points in your dataset that belong to a particular model. In the case of the 3D scene you're working with here, the model we choose could be a plane, a cylinder, a box, or any other common shape.
+Next in our perception pipeline, we need to remove the table itself from the scene. To do this, we implementing RANSAC (Random Sample Consensus).
 
-The RANSAC algorithm assumes that all of the data in a dataset is composed of both inliers and outliers, where inliers can be defined by a particular model with a specific set of parameters, while outliers do not fit that model and hence can be discarded. Like in the example below, we can extract the outliners that are not good fits for the model.
-
-We implement RANSAC with max_distance = 0.015. Extracted inlier we can see as image below :
 <p align="center"> <img src="./images/04 Extracted Inlier.jpg"> </p>
 
 From extracted_inlier, we can get extracted outlier as image below :
