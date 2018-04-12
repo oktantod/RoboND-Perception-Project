@@ -160,3 +160,12 @@ The recognition output we can see in below picture :
 
 Target recognition output is 100% (8/8) objects in test3.world
 YAML File: [Link!](https://github.com/oktantod/RoboND-Perception-Project/blob/master/output_3.yaml)
+
+#Potentially improvement :
+##1. Filtering.
+VoxelGrid Downsampling Filter, the number of LEAF_SIZE must be find which value that have smaller size but the accuracy still better
+Pass Through Filtering, axis_min and axis_max is set manually to define region of interest
+Ransac Plane Fitting, subset of point from the original cloud does inliers depends on the setting of max_distance. This value is set manually
+
+##2. Object Recognitions
+In this exercise, model.sav generated from 8 object only. Taking 50 feature train each object would be enought. But, if the object have number very larged, it would be better if we train each object with higher number of train to get better accuracy.
