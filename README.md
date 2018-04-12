@@ -80,7 +80,7 @@ Support Vector Machine (SVM) kernel that we are used is RBF. Another kernel that
 The output of confusion matrix we can see as image below :
 <p align="center"> <img src="./images/Confusion Matrix.jpg"> </p>
 
-Ass we can see from confusion matrix, from 50 test, each object have misclassification maximum is 3. This feature generation and svm model is good enought to determined the object. The output model would be used for target recognition in world_1, world_2 and world_3. The accuracy of SVM you can see in the image bellow :
+As we can see from confusion matrix, from 50 test, each object have misclassification maximum is 3. This feature generation and svm model is good enought to determined the object. The output model would be used for target recognition in world_1, world_2 and world_3. The accuracy of SVM you can see in the image bellow :
 <p align="center"> <img src="./images/Accuracy SVM Trainee.jpg"> </p>
 
 
